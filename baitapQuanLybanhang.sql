@@ -26,4 +26,9 @@ values (1,'May Giat',3),
   select orders.oId, product.pId,product.pName,orderdetail.oId,orderdetail.pId
   from orders,orderdetail,product
   where orders.oId = orderdetail.oId and product.pId = orderdetail.pId;
+  select * from customer where customer.cId not in ( select cid from orders);
   
+  select orders.oID, orders.oDate, product.pName, product.pPrice, orderdetail.odQTY, 
+  product.pPrice * orderdetail.odQTY as total
+  from orders, product, orderdetail
+  where orders.oID = orderdetail.oID and orderdetail.pID = product.pID; 
